@@ -11,7 +11,7 @@
 
 <meta name="author" content="{STUDENT NAME}" />
 
-<meta name="date" content="2023-01-11" />
+<meta name="date" content="2023-01-12" />
 
 <title>Lab1</title>
 
@@ -1319,7 +1319,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Lab1</h1>
 <h4 class="author">{STUDENT NAME}</h4>
-<h4 class="date">2023-01-11</h4>
+<h4 class="date">2023-01-12</h4>
 
 </div>
 
@@ -1410,7 +1410,7 @@ box?</p>
 <p>There are two column dealing with price, high and low. Let’s combine
 them into a single average price column.</p>
 <p>Let’s take a look at pumpkins sales throughout the year.</p>
-<p><em>Question:</em> Create a scatter plot using price on the y-axis
+<p><em>Question 1:</em> Create a scatter plot using price on the y-axis
 and day on the x-axis.</p>
 <p>Now, before we go any further, let’s take another look at the data.
 Notice anything odd?</p>
@@ -1440,7 +1440,7 @@ widths.</p>
 <p>Pumpkins seem to be very hard to weigh consistently, so let’s filter
 them by selecting only pumpkins with the string bushel in the package
 column and put this in a new data frame “new_pumpkins”.</p>
-<p><em>Question</em> In the first section of the chunk below, use a
+<p><em>Question 2</em> In the first section of the chunk below, use a
 combination of dplyr::filter() and stringr::str_detect() to achieve what
 we want.</p>
 <pre><code>## [1] 415   9</code></pre>
@@ -1484,15 +1484,15 @@ if_else()statements.</p>
 <div id="data-visualization" class="section level2">
 <h2>Data Visualization</h2>
 <p><img src="Lab1_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p><em>Question:</em> Is this a useful plot 🤷? Does anything about it
+<p><em>Question 3:</em> Is this a useful plot 🤷? Does anything about it
 surprise you?</p>
 <p>How do we make it useful? To get charts to display useful data, you
 usually need to group the data somehow.</p>
-<p><em>Question:</em> Within new_pumpkins, group the pumpkins into
+<p><em>Question 4:</em> Within new_pumpkins, group the pumpkins into
 groups based on the month column and then find the mean price for each
 month (in the next chunk).</p>
 <p>Hint: use dplyr::group_by() %&gt;% summarize()</p>
-<p><em>Question:</em> Now do that again, but continue on and plot the
+<p><em>Question 5:</em> Now do that again, but continue on and plot the
 results with a bar plot</p>
 <p>#Preprocessing data for modelling using recipes</p>
 <p>What if we wanted to predict the price of a pumpkin based on the city
@@ -1568,16 +1568,16 @@ confirming that indeed the preprocessing steps defined as our recipe
 will work as expected. This makes it harder for you to read but more
 intelligible for tidymodels. Take a look at how the observations have
 been mapped to numbers.</p>
-<p><em>Question:</em> From looking at the baked_pumpkins tibble, how
+<p><em>Question 6:</em> From looking at the baked_pumpkins tibble, how
 many total cities are represented in the data set?</p>
 <p>baked_pumpkins is a data frame that we can perform computations on.
 For instance, let’s try to find a good correlation between two variables
 to potentially build a good predictive model. We’ll use the function
 cor() to do this.</p>
 <pre><code>## [1] 0.4944854</code></pre>
-<p><em>Question:</em> Calculate the correlation between pumpkin price
+<p><em>Question 7:</em> Calculate the correlation between pumpkin price
 and two other variables in the data set</p>
-<p><em>Question:</em> Which of these three variables is most highly
+<p><em>Question 8:</em> Which of these three variables is most highly
 correlated with price? Why might this be?</p>
 <p>Now let’s visualize a correlation matrix of all the columns using the
 corrplot package.</p>
@@ -1607,30 +1607,30 @@ activities.</p>
 <p>So let’s bundle everything up into a workflow. A workflow is a
 container object that aggregates information required to fit and predict
 from a model.</p>
-<pre><code>## ══ Workflow ════════════════════════
+<pre><code>## ══ Workflow ══════════════════════════════════════════════════════════════════════
 ## Preprocessor: Recipe
 ## Model: linear_reg()
 ## 
-## ── Preprocessor ────────────────────
+## ── Preprocessor ──────────────────────────────────────────────────────────────────
 ## 1 Recipe Step
 ## 
 ## • step_integer()
 ## 
-## ── Model ───────────────────────────
+## ── Model ─────────────────────────────────────────────────────────────────────────
 ## Linear Regression Model Specification (regression)
 ## 
 ## Computational engine: lm</code></pre>
 <p>A workflow can be fit/trained in much the same way a model can.</p>
-<pre><code>## ══ Workflow [trained] ══════════════
+<pre><code>## ══ Workflow [trained] ════════════════════════════════════════════════════════════
 ## Preprocessor: Recipe
 ## Model: linear_reg()
 ## 
-## ── Preprocessor ────────────────────
+## ── Preprocessor ──────────────────────────────────────────────────────────────────
 ## 1 Recipe Step
 ## 
 ## • step_integer()
 ## 
-## ── Model ───────────────────────────
+## ── Model ─────────────────────────────────────────────────────────────────────────
 ## 
 ## Call:
 ## stats::lm(formula = ..y ~ ., data = data)
@@ -1700,7 +1700,7 @@ model.</p>
 <p><img src="Lab1_files/figure-html/encode_package-1.png" width="672" /></p>
 <p>Hmm. The model does not do good job of generalizing the relationship
 between a package and its corresponding price.</p>
-<p><em>Question</em> What issues do you see with fitting a linear
+<p><em>Question 9</em> What issues do you see with fitting a linear
 regression to this data?</p>
 <p>Congratulations, you just created a model that can help predict the
 price of a few varieties of pumpkins. But you can probably create a
