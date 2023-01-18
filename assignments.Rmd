@@ -31,7 +31,11 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Slides:
 
+<<<<<<< HEAD
 -   Lecture 1: Linear Regression II
+=======
+-   Lecture 1:
+>>>>>>> 983401b161ee559a7716f4dbdb2610f7fbae75ad
 
 ### Assigned Reading:
 
@@ -40,9 +44,19 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 -   [Tidy Models in R Ch. 3 (3.3-3.5)](https://www.tmwr.org/base-r.html#tidiness-modeling)
     -   Intro to Tidy Modeling. Provides some context for Lab 1 and beyond.
 
+<<<<<<< HEAD
 ### Lab:
 
 -   [Link to .Rmd](https://github.com/MaRo406/eds-232-machine-learning/blob/main/Lab2.Rmd)
+=======
+### Supplementary Reading:
+
+-   
+
+### Lab:
+
+-   
+>>>>>>> 983401b161ee559a7716f4dbdb2610f7fbae75ad
 
 <!-- \### Assignment materials and dates -->
 
