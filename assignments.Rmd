@@ -31,7 +31,7 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Slides:
 
--   Lecture 1: Linear Regression II
+-   Lecture 1: [Linear Regression II](https://github.com/MaRo406/eds-232-machine-learning/blob/main/docs/slides/Week2_slides_Regression%20II.pdf)
 
 ### Assigned Reading:
 
