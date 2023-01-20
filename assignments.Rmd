@@ -44,7 +44,23 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 -   [Link to .Rmd](https://github.com/MaRo406/eds-232-machine-learning/blob/main/Lab2.Rmd)
 
-    <!-- \### Assignment materials and dates -->
+## Week 3
+
+### Slides:
+
+-   Lecture 1: Regularized Regression
+
+### Assigned Reading:
+
+-   [HOML Ch. 6](https://bradleyboehmke.github.io/HOML/regularized-regression.html)
+
+### Supplementary Reading: 
+
+-   [Gagne et al. (2018)](https://ucsb.box.com/s/w92iwiyspdjnuoam4yjzvkzbg6qi0t4q)
+
+### Lab:
+
+<!-- \### Assignment materials and dates -->
 
 <!-- | Assignment materials | Assigned | Due date | -->
 
