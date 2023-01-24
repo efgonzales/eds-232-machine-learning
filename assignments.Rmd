@@ -56,6 +56,7 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Supplementary Reading:
 
+-   [Bias-Variance Scrollytelling](https://mlu-explain.github.io/bias-variance/)
 -   [Gagne et al. (2018)](https://ucsb.box.com/s/w92iwiyspdjnuoam4yjzvkzbg6qi0t4q)
 
 ### Lab:
