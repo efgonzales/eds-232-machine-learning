@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="{STUDENT NAME}" />
+<meta name="author" content="Elise Gonzales" />
 
-<meta name="date" content="2023-01-12" />
+<meta name="date" content="2023-01-14" />
 
 <title>Lab1</title>
 
@@ -1040,13 +1040,13 @@ d-appendix d-footnote-list a.footnote-backlink {
 .distill-site-footer a:hover {
   color: var(--hover-color, white);
 }</style>
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/pandoc/header-attrs.js"></script>
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/jquerylib/lib/3.6.0/jquery-3.6.0.min.js"></script>
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\pandoc\header-attrs.js"></script>
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\jquerylib\lib\3.6.0\jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/bootstrap/js/bootstrap.min.js"></script>
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/bootstrap/shim/html5shiv.min.js"></script>
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/bootstrap/shim/respond.min.js"></script>
+<link href="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\bootstrap\css\bootstrap.min.css" rel="stylesheet" />
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\bootstrap\js\bootstrap.min.js"></script>
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\bootstrap\shim\html5shiv.min.js"></script>
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\bootstrap\shim\respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -1056,11 +1056,11 @@ d-appendix d-footnote-list a.footnote-backlink {
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/navigation-1.1/tabsets.js"></script>
-<link href="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/highlightjs/default.css" rel="stylesheet" />
-<script src="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/highlightjs/highlight.js"></script>
-<link href="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/fontawesome/css/all.css" rel="stylesheet" />
-<link href="/Library/Frameworks/R.framework/Versions/4.1/Resources/library/rmarkdown/rmd/h/fontawesome/css/v4-shims.css" rel="stylesheet" />
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\navigation-1.1\tabsets.js"></script>
+<link href="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\highlightjs\default.css" rel="stylesheet" />
+<script src="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\highlightjs\highlight.js"></script>
+<link href="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\fontawesome\css\all.css" rel="stylesheet" />
+<link href="C:\Users\elise\AppData\Local\R\win-library\4.2\rmarkdown\rmd\h\fontawesome\css\v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1318,8 +1318,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Lab1</h1>
-<h4 class="author">{STUDENT NAME}</h4>
-<h4 class="date">2023-01-12</h4>
+<h4 class="author">Elise Gonzales</h4>
+<h4 class="date">2023-01-14</h4>
 
 </div>
 
@@ -1383,6 +1383,11 @@ box?</p>
 ## 3 HOWDEN TYPE BALTIMORE 24 inch bins       160        160 9/24/16
 ## 4 HOWDEN TYPE BALTIMORE 24 inch bins       160        160 9/24/16
 ## 5 HOWDEN TYPE BALTIMORE 24 inch bins        90        100 11/5/16</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
 <pre><code>## # A tibble: 1,757 × 7
 ##    variety     city_name package      low_price high_price date       month
 ##    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt;
@@ -1412,6 +1417,7 @@ them into a single average price column.</p>
 <p>Let’s take a look at pumpkins sales throughout the year.</p>
 <p><em>Question 1:</em> Create a scatter plot using price on the y-axis
 and day on the x-axis.</p>
+<p><img src="Lab1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Now, before we go any further, let’s take another look at the data.
 Notice anything odd?</p>
 <p>That’s right: pumpkins are sold in many different configurations.
@@ -1445,18 +1451,19 @@ combination of dplyr::filter() and stringr::str_detect() to achieve what
 we want.</p>
 <pre><code>## [1] 415   9</code></pre>
 <pre><code>## # A tibble: 10 × 9
-##    variety  city_name package  low_price high_price date         day month price
-##    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-09-24   268     9  13.6
-##  2 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-09-24   268     9  16.4
-##  3 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-10-01   275    10  16.4
-##  4 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-01   275    10  15.5
-##  5 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-10-08   282    10  13.6
-##  6 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-10-08   282    10  16.4
-##  7 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-08   282    10  15.5
-##  8 PIE TYPE BALTIMORE 1 1/9 b…        17       18.5 2016-10-08   282    10  16.1
-##  9 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-10-15   289    10  13.6
-## 10 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-15   289    10  15.5</code></pre>
+##    variety  city_name package       low_p…¹ high_…² date         day month price
+##    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-09-24   268     9  15  
+##  2 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-09-24   268     9  18  
+##  3 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-10-01   275    10  18  
+##  4 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-01   275    10  17  
+##  5 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-10-08   282    10  15  
+##  6 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-10-08   282    10  18  
+##  7 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-08   282    10  17  
+##  8 PIE TYPE BALTIMORE 1 1/9 bushel…      17    18.5 2016-10-08   282    10  17.8
+##  9 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-10-15   289    10  15  
+## 10 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-15   289    10  17  
+## # … with abbreviated variable names ¹​low_price, ²​high_price</code></pre>
 <p>You can see that we have narrowed down to 415 rows of data containing
 pumpkins by the bushel.</p>
 <p>But wait! There’s one more thing to do</p>
@@ -1467,33 +1474,46 @@ normalize the pricing so that you show the pricing per bushel, not per 1
 depending on some conditions. case_when allows you to vectorise multiple
 if_else()statements.</p>
 <pre><code>## # A tibble: 30 × 9
-##    variety  city_name package  low_price high_price date         day month price
-##    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-09-24   268     9  12.4
-##  2 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-09-24   268     9  14.9
-##  3 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-10-01   275    10  14.9
-##  4 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-01   275    10  14.0
-##  5 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-10-08   282    10  12.4
-##  6 PIE TYPE BALTIMORE 1 1/9 b…        18       18   2016-10-08   282    10  14.9
-##  7 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-08   282    10  14.0
-##  8 PIE TYPE BALTIMORE 1 1/9 b…        17       18.5 2016-10-08   282    10  14.7
-##  9 PIE TYPE BALTIMORE 1 1/9 b…        15       15   2016-10-15   289    10  12.4
-## 10 PIE TYPE BALTIMORE 1 1/9 b…        17       17   2016-10-15   289    10  14.0
-## # … with 20 more rows</code></pre>
+##    variety  city_name package       low_p…¹ high_…² date         day month price
+##    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-09-24   268     9  13.6
+##  2 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-09-24   268     9  16.4
+##  3 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-10-01   275    10  16.4
+##  4 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-01   275    10  15.5
+##  5 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-10-08   282    10  13.6
+##  6 PIE TYPE BALTIMORE 1 1/9 bushel…      18    18   2016-10-08   282    10  16.4
+##  7 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-08   282    10  15.5
+##  8 PIE TYPE BALTIMORE 1 1/9 bushel…      17    18.5 2016-10-08   282    10  16.1
+##  9 PIE TYPE BALTIMORE 1 1/9 bushel…      15    15   2016-10-15   289    10  13.6
+## 10 PIE TYPE BALTIMORE 1 1/9 bushel…      17    17   2016-10-15   289    10  15.5
+## # … with 20 more rows, and abbreviated variable names ¹​low_price, ²​high_price</code></pre>
 </div>
 <div id="data-visualization" class="section level2">
 <h2>Data Visualization</h2>
 <p><img src="Lab1_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><em>Question 3:</em> Is this a useful plot 🤷? Does anything about it
 surprise you?</p>
+<ul>
+<li>It’s difficult to see any trends with the way it’s plotting raw data
+and not summary stats.</li>
+</ul>
 <p>How do we make it useful? To get charts to display useful data, you
 usually need to group the data somehow.</p>
 <p><em>Question 4:</em> Within new_pumpkins, group the pumpkins into
 groups based on the month column and then find the mean price for each
 month (in the next chunk).</p>
 <p>Hint: use dplyr::group_by() %&gt;% summarize()</p>
+<pre><code>## # A tibble: 5 × 2
+##   month mean_price
+##   &lt;dbl&gt;      &lt;dbl&gt;
+## 1     8       24.5
+## 2     9       28.6
+## 3    10       28.4
+## 4    11       25.1
+## 5    12       15.6</code></pre>
 <p><em>Question 5:</em> Now do that again, but continue on and plot the
 results with a bar plot</p>
+<p><img src="Lab1_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>#Preprocessing data for modelling using recipes</p>
 <p>What if we wanted to predict the price of a pumpkin based on the city
 or package columns which are of type character? How could we find the
@@ -1553,16 +1573,16 @@ the predictor columns will be first encoded before a model is fit.</p>
 <pre><code>## # A tibble: 10 × 9
 ##    variety city_name package low_price high_price  date   day month price
 ##      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1       3         1       0         5          3     0     5     1  12.4
-##  2       3         1       0        10          7     0     5     1  14.9
-##  3       3         1       0        10          7     6    11     2  14.9
-##  4       3         1       0         9          6     6    11     2  14.0
-##  5       3         1       0         5          3     7    12     2  12.4
-##  6       3         1       0        10          7     7    12     2  14.9
-##  7       3         1       0         9          6     7    12     2  14.0
-##  8       3         1       0         9          8     7    12     2  14.7
-##  9       3         1       0         5          3     8    13     2  12.4
-## 10       3         1       0         9          6     8    13     2  14.0</code></pre>
+##  1       3         1       0         5          3     0     5     1  13.6
+##  2       3         1       0        10          7     0     5     1  16.4
+##  3       3         1       0        10          7     6    11     2  16.4
+##  4       3         1       0         9          6     6    11     2  15.5
+##  5       3         1       0         5          3     7    12     2  13.6
+##  6       3         1       0        10          7     7    12     2  16.4
+##  7       3         1       0         9          6     7    12     2  15.5
+##  8       3         1       0         9          8     7    12     2  16.1
+##  9       3         1       0         5          3     8    13     2  13.6
+## 10       3         1       0         9          6     8    13     2  15.5</code></pre>
 <p>The processed data baked_pumpkins has all its predictors encoded
 confirming that indeed the preprocessing steps defined as our recipe
 will work as expected. This makes it harder for you to read but more
@@ -1570,18 +1590,26 @@ intelligible for tidymodels. Take a look at how the observations have
 been mapped to numbers.</p>
 <p><em>Question 6:</em> From looking at the baked_pumpkins tibble, how
 many total cities are represented in the data set?</p>
+<pre><code>##  [1] 1 0 2 3 4 6 5 8 7 9</code></pre>
+<p>10 cities</p>
 <p>baked_pumpkins is a data frame that we can perform computations on.
 For instance, let’s try to find a good correlation between two variables
 to potentially build a good predictive model. We’ll use the function
 cor() to do this.</p>
-<pre><code>## [1] 0.4944854</code></pre>
+<pre><code>## [1] 0.6061713</code></pre>
 <p><em>Question 7:</em> Calculate the correlation between pumpkin price
 and two other variables in the data set</p>
+<pre><code>## [1] 0.3236397</code></pre>
+<pre><code>## [1] -0.1487829</code></pre>
 <p><em>Question 8:</em> Which of these three variables is most highly
 correlated with price? Why might this be?</p>
+<p>The package is most highly correlated with the price. This might be
+the most highly correlated because the different packages have different
+prices, price dependent on number of pumpkins; therefore, they are
+highly correlated.</p>
 <p>Now let’s visualize a correlation matrix of all the columns using the
 corrplot package.</p>
-<p><img src="Lab1_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Lab1_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="build-a-linear-regression-model" class="section level1">
 <h1>Build a linear regression model</h1>
@@ -1607,37 +1635,37 @@ activities.</p>
 <p>So let’s bundle everything up into a workflow. A workflow is a
 container object that aggregates information required to fit and predict
 from a model.</p>
-<pre><code>## ══ Workflow ══════════════════════════════════════════════════════════════════════
+<pre><code>## ══ Workflow ════════════════════════════════════════════════════════════════════
 ## Preprocessor: Recipe
 ## Model: linear_reg()
 ## 
-## ── Preprocessor ──────────────────────────────────────────────────────────────────
+## ── Preprocessor ────────────────────────────────────────────────────────────────
 ## 1 Recipe Step
 ## 
 ## • step_integer()
 ## 
-## ── Model ─────────────────────────────────────────────────────────────────────────
+## ── Model ───────────────────────────────────────────────────────────────────────
 ## Linear Regression Model Specification (regression)
 ## 
 ## Computational engine: lm</code></pre>
 <p>A workflow can be fit/trained in much the same way a model can.</p>
-<pre><code>## ══ Workflow [trained] ════════════════════════════════════════════════════════════
+<pre><code>## ══ Workflow [trained] ══════════════════════════════════════════════════════════
 ## Preprocessor: Recipe
 ## Model: linear_reg()
 ## 
-## ── Preprocessor ──────────────────────────────────────────────────────────────────
+## ── Preprocessor ────────────────────────────────────────────────────────────────
 ## 1 Recipe Step
 ## 
 ## • step_integer()
 ## 
-## ── Model ─────────────────────────────────────────────────────────────────────────
+## ── Model ───────────────────────────────────────────────────────────────────────
 ## 
 ## Call:
 ## stats::lm(formula = ..y ~ ., data = data)
 ## 
 ## Coefficients:
 ## (Intercept)      package  
-##       30.34        10.02</code></pre>
+##       20.14         4.76</code></pre>
 <p>From the model output, we can see the coefficients learned during
 training. They represent the coefficients of the line of best fit that
 gives us the lowest overall error between the actual and predicted
@@ -1653,16 +1681,16 @@ columns to the test set.</p>
 <pre><code>## # A tibble: 10 × 3
 ##    package              price .pred
 ##    &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;
-##  1 1 1/9 bushel cartons  12.4  30.3
-##  2 1 1/9 bushel cartons  14.9  30.3
-##  3 1 1/9 bushel cartons  14.9  30.3
-##  4 1 1/9 bushel cartons  12.4  30.3
-##  5 1 1/9 bushel cartons  14.0  30.3
-##  6 1 1/9 bushel cartons  14.9  30.3
-##  7 1/2 bushel cartons    68    50.4
-##  8 1/2 bushel cartons    60    50.4
-##  9 1/2 bushel cartons    60    50.4
-## 10 1/2 bushel cartons    68    50.4</code></pre>
+##  1 1 1/9 bushel cartons  13.6  20.1
+##  2 1 1/9 bushel cartons  16.4  20.1
+##  3 1 1/9 bushel cartons  16.4  20.1
+##  4 1 1/9 bushel cartons  13.6  20.1
+##  5 1 1/9 bushel cartons  15.5  20.1
+##  6 1 1/9 bushel cartons  16.4  20.1
+##  7 1/2 bushel cartons    34    29.7
+##  8 1/2 bushel cartons    30    29.7
+##  9 1/2 bushel cartons    30    29.7
+## 10 1/2 bushel cartons    34    29.7</code></pre>
 <p>OK, you have just trained a model and used it to make predictions!
 Let’s evaluate the model’s performance.</p>
 <p>In Tidymodels, we do this using yardstick::metrics(). For linear
@@ -1680,9 +1708,9 @@ explain.</p>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      21.8  
-## 2 rsq     standard       0.452
-## 3 mae     standard      20.0</code></pre>
+## 1 rmse    standard       7.23 
+## 2 rsq     standard       0.495
+## 3 mae     standard       5.94</code></pre>
 <p>OK, so that is the model performance. Let’s see if we can get a
 better indication by visualizing a scatter plot of the package and price
 then use the predictions made to overlay a line of best fit.</p>
@@ -1692,16 +1720,18 @@ model.</p>
 <pre><code>## # A tibble: 5 × 4
 ##   package              package_integer price .pred
 ##   &lt;chr&gt;                          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 1 1/9 bushel cartons               0  12.4  30.3
-## 2 1 1/9 bushel cartons               0  14.9  30.3
-## 3 1 1/9 bushel cartons               0  14.9  30.3
-## 4 1 1/9 bushel cartons               0  12.4  30.3
-## 5 1 1/9 bushel cartons               0  14.0  30.3</code></pre>
+## 1 1 1/9 bushel cartons               0  13.6  20.1
+## 2 1 1/9 bushel cartons               0  16.4  20.1
+## 3 1 1/9 bushel cartons               0  16.4  20.1
+## 4 1 1/9 bushel cartons               0  13.6  20.1
+## 5 1 1/9 bushel cartons               0  15.5  20.1</code></pre>
 <p><img src="Lab1_files/figure-html/encode_package-1.png" width="672" /></p>
 <p>Hmm. The model does not do good job of generalizing the relationship
 between a package and its corresponding price.</p>
 <p><em>Question 9</em> What issues do you see with fitting a linear
 regression to this data?</p>
+<p>The linear regression doesn’t look representative of the spread of
+the data.</p>
 <p>Congratulations, you just created a model that can help predict the
 price of a few varieties of pumpkins. But you can probably create a
 better model!</p>

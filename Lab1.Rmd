@@ -1,6 +1,6 @@
 ---
 title: "Lab1"
-author: "{STUDENT NAME}"
+author: "Elise Gonzales"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -14,8 +14,8 @@ library("janitor")
 library("corrplot")
 dat <- read_csv(file = "https://raw.githubusercontent.com/MaRo406/eds-232-machine-learning/main/data/pumpkin-data.csv")
 ```
-##Case Study: The Pumpkin Market
-The data you just loaded  includes 1757 lines of data about the market for pumpkins, sorted into groupings by city. This is raw data extracted from the Specialty Crops Terminal Markets Standard Reports distributed by the United States Department of Agriculture.
+
+##Case Study: The Pumpkin Market The data you just loaded includes 1757 lines of data about the market for pumpkins, sorted into groupings by city. This is raw data extracted from the Specialty Crops Terminal Markets Standard Reports distributed by the United States Department of Agriculture.
 
 You are loading a pumpkin data set so as to ask questions of it.
 
@@ -32,13 +32,10 @@ glimpse(dat)
 ```
 
 ```{r}
-
 # Clean names to the snake_case convention
-
 pumpkins <- dat %>% clean_names(case = "snake")
 
 # Return column names
-
 pumpkins %>% names()
 ```
 
@@ -86,7 +83,9 @@ Let's take a look at pumpkins sales throughout the year.
 *Question 1:* Create a scatter plot using price on the y-axis and day on the x-axis.
 
 ```{r}
-
+# Make a scatter plot of month and price
+ggplot(data = pumpkins, aes(x = day, y = price)) +
+  geom_point()
 
 ```
 
@@ -106,10 +105,10 @@ Pumpkins seem to be very hard to weigh consistently, so let's filter them by sel
 
 *Question 2* In the first section of the chunk below, use a combination of dplyr::filter() and stringr::str_detect() to achieve what we want.
 
-
 ```{r}
 # Retain only pumpkins with "bushel" in the package column
-
+new_pumpkins <- pumpkins %>% 
+       filter(str_detect(package, "bushel"))
 
 # Get the dimensions of the new data
 dim(new_pumpkins)
@@ -155,20 +154,30 @@ new_pumpkins %>%
 
 *Question 3:* Is this a useful plot 🤷? Does anything about it surprise you?
 
+-   It's difficult to see any trends with the way it's plotting raw data and not summary stats.
+
 How do we make it useful? To get charts to display useful data, you usually need to group the data somehow.
 
 *Question 4:* Within new_pumpkins, group the pumpkins into groups based on the month column and then find the mean price for each month (in the next chunk).
 
-Hint: use dplyr::group_by() %>% summarize()
+Hint: use dplyr::group_by() %\>% summarize()
 
 ```{r}
 # Find the average price of pumpkins per month
-
+new_pumpkins |> group_by(month) |> 
+  summarise(mean_price = mean(price))
 ```
-*Question 5:* Now do that again, but continue on and plot the results with a bar plot 
+
+*Question 5:* Now do that again, but continue on and plot the results with a bar plot
+
 ```{r}
 # Find the average price of pumpkins per month then plot a bar chart
-
+pumpkins |> 
+  group_by(month)|> 
+  summarise(mean_price = mean(price))|> 
+  ggplot(aes(x = month, y = mean_price)) +
+  geom_col(fill = "orange", alpha = 0.8) +
+  ylab("Pumpkin Price (avg/mo)")
 ```
 
 #Preprocessing data for modelling using recipes
@@ -227,6 +236,12 @@ The processed data baked_pumpkins has all its predictors encoded confirming that
 
 *Question 6:* From looking at the baked_pumpkins tibble, how many total cities are represented in the data set?
 
+```{r}
+unique(baked_pumpkins$city_name)
+```
+
+10 cities
+
 baked_pumpkins is a data frame that we can perform computations on. For instance, let's try to find a good correlation between two variables to potentially build a good predictive model. We'll use the function cor() to do this.
 
 ```{r}
@@ -237,10 +252,16 @@ cor(baked_pumpkins$package, baked_pumpkins$price)
 *Question 7:* Calculate the correlation between pumpkin price and two other variables in the data set
 
 ```{r}
+# correlation between city "city_name" and price
+cor(baked_pumpkins$city_name, baked_pumpkins$price)
 
+# correlation between month and price
+cor(baked_pumpkins$month, baked_pumpkins$price)
 ```
 
 *Question 8:* Which of these three variables is most highly correlated with price? Why might this be?
+
+The package is most highly correlated with the price. This might be the most highly correlated because the different packages have different prices, price dependent on number of pumpkins; therefore, they are highly correlated.
 
 Now let's visualize a correlation matrix of all the columns using the corrplot package.
 
@@ -390,5 +411,7 @@ plot_results %>%
 Hmm. The model does not do good job of generalizing the relationship between a package and its corresponding price.
 
 *Question 9* What issues do you see with fitting a linear regression to this data?
+
+The linear regression doesn't look representative of the spread of the data.
 
 Congratulations, you just created a model that can help predict the price of a few varieties of pumpkins. But you can probably create a better model!
