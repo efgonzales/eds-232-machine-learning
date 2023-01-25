@@ -16,91 +16,59 @@ library(skimr)
 ```{r data}
 #load and inspect the data
 ames <- AmesHousing::make_ames()
-glimpse(ames)
-dim(ames$Sale_price)
 
-
-```
-```{r}
-#some sort of visualization
 ```
 
 ##Train a model
 ```{r intial_split}
 # Stratified sampling with the rsample package
 set.seed(123) #set a seed for reproducibility
-split <- initial_split(ames, prop = 0.7, 
-                       strata = "Sale_Price")
-ames_train  <- training(split)
-ames_test   <- testing(split)
+split <- 
+split
+ames_train <-  
+ames_test  <- 
 
-split #we can learn a bit more about this
+split
 ```
-```{r recipe}
-ames_rec <- recipe(Sale_Price ~ ., data = ames_train) %>%
-  step_zv(all_numeric(), -all_outcomes())%>%
-   step_normalize(all_numeric(), -all_outcomes()) %>% #mean = 0, sd = 1
-   step_integer(all_nominal(), zero_based = TRUE)  
+
+```{r model_data}
+#Create training feature matrices using model.matrix() (auto encoding of categorical variables)
+
+X <- 
+
+# transform y with log() transformation
+Y <- 
+
+```
+
+```{r glmnet}
+#fit a ridge model, passing X,Y,alpha to glmnet()
+ridge <- 
+
+#plot() the glmnet model object
   
-
-#converted factor variables to numeric, note that there are issues with this around how the model interprets the variable. We'll addressed this later. Order matters in preprocessing.
-
-#norm formula: (X – min(X))/(max(X) – min(X))
-
-# For each value of a variable, we simply find how far that value is from the minimum value, then divide by the range. 
-```
-
- automatically transforms any qualitative variables into dummy variables. The latter property is important because glmnet() can only take numerical, quantitative inputs.
-```{r caret_implementation}
-#Create training feature matrices using model.matrix (auto encoding of categorical variables)
-# we use model.matrix(...)[, -1] to discard the intercept
-X <- model.matrix(Sale_Price ~ ., ames_train)[, -1] #what is this index doing?
-
-#look at var distributions
-
-# transform y with log transformation
-Y <- log(ames_train$Sale_Price)
-
+  
 ```
 
 ```{r}
-ridge <- glmnet(
-  x = X,
-  y = Y,
-  alpha = 0 #controls ridge vs lasso
-)
+# lambdas applied to penalty parameter.  Examine the first few
 
-plot(ridge, xvar = "lambda")
-```
-
-```{r}
-# lambdas applied to penalty parameter
-ridge$lambda %>% head()
 
 # small lambda results in large coefficients
 coef(ridge)[c("Latitude", "Overall_QualVery_Excellent"), 100]
 
-# large lambda results in small coefficients
-coef(ridge)[c("Latitude", "Overall_QualVery_Excellent"), 1]  
+# what about for small coefficients?
+  
 ```
-At this point, we do not understand how much improvement we are experiencing in our loss function across various  
-λ values.
+How much improvement to our loss function as lambda changes?
 
 ##Tuning
-```{r}
-# Apply CV ridge regression to Ames data
-ridge <- cv.glmnet(
-  x = X,
-  y = Y,
-  alpha = 0
-)
+```{r cv.glmnet}
+# Apply CV ridge regression to Ames data.  Same arguments as before to glmnet()
+ridge 
 
 # Apply CV lasso regression to Ames data
-lasso <- cv.glmnet(
-  x = X,
-  y = Y,
-  alpha = 1
-)
+lasso 
 
 # plot results
 par(mfrow = c(1, 2))
@@ -108,42 +76,32 @@ plot(ridge, main = "Ridge penalty\n\n")
 plot(lasso, main = "Lasso penalty\n\n")
 ```
 
-10-fold CV MSE for a ridge and lasso model. First dotted vertical line in each plot represents the λ with the smallest MSE and the second represents the λ with an MSE within one standard error of the minimum MSE.
+10-fold CV MSE for a ridge and lasso model. What's the "rule of 1 standard deviation"?
 
-In both models we see a slight improvement in the MSE as our penalty log(λ) gets larger, suggesting that a regular OLS model likely overfits the training data. But as we constrain it further (i.e., continue to increase the penalty), our MSE starts to increase. The numbers across the top of the plot refer to the number of features in the model. Ridge regression does not force any variables to exactly zero so all features will remain in the model but we see the number of variables retained in the lasso model decrease as the penalty increases.
+In both models we see a slight improvement in the MSE as our penalty log(λ) gets larger, suggesting that a regular OLS model likely overfits the training data. But as we constrain it further (i.e., continue to increase the penalty), our MSE starts to increase. 
 
 Let's examine the important parameter values apparent in the plots.
 ```{r}
 # Ridge model
-min(ridge$cvm)       # minimum MSE
-## [1] 0.01748122
-ridge$lambda.min     # lambda for this min MSE
-## [1] 0.1051301
+# minimum MSE
 
-ridge$cvm[ridge$lambda == ridge$lambda.1se]  # 1-SE rule
-## [1] 0.01975572
-ridge$lambda.1se  # lambda for this MSE
-## [1] 0.4657917
+# lambda for this min MSE
+
+# lambda for this MSE
+
 
 # Lasso model
 min(lasso$cvm)       # minimum MSE
-## [1] 0.01754244
+
 lasso$lambda.min     # lambda for this min MSE
-## [1] 0.00248579
-lasso$nzero[lasso$lambda == lasso$lambda.min] # No. of coef | Min MSE
-## s51 
-## 139
 
-lasso$cvm[lasso$lambda == lasso$lambda.1se]  # 1-SE rule
-## [1] 0.01979976
+
+# 1-SE rule
 lasso$lambda.1se  # lambda for this MSE
-## [1] 0.01003518
-lasso$nzero[lasso$lambda == lasso$lambda.1se] # No. of coef | 1-SE MSE
-## s36 
-##  64
-```
-Above, we saw that both ridge and lasso penalties provide similar MSEs; however, these plots illustrate that ridge is still using all 294 features whereas the lasso model can get a similar MSE while reducing the feature set from 294 down to 139. However, there will be some variability with this MSE and we can reasonably assume that we can achieve a similar MSE with a slightly more constrained model that uses only 64 features. Although this lasso model does not offer significant improvement over the ridge model, we get approximately the same accuracy by using only 64 features! If describing and interpreting the predictors is an important component of your analysis, this may significantly aid your endeavor.
 
+# No. of coef | 1-SE MSE
+
+```
 
 ```{r}
 # Ridge model

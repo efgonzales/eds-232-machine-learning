@@ -61,6 +61,10 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Lab:
 
+-   [Link to the Lab 3 Demo](https://github.com/MaRo406/eds-232-machine-learning/blob/main/Lab3_Demo.Rmd)
+
+-   [Link to the Lab 3 Assignment](https://github.com/MaRo406/eds-232-machine-learning/blob/main/Lab3.Rmd)
+
 <!-- \### Assignment materials and dates -->
 
 <!-- | Assignment materials | Assigned | Due date | -->
