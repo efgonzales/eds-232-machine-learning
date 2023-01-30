@@ -69,13 +69,15 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Slides:
 
--   Lecture 1:
+-   Lecture 1: [Classification and Logistic Regression](https://ucsb.box.com/s/k9vnorvgepeny78ulvku6tjqxrw8djkt)
 
 ### Assigned Reading:
 
 -   [HOML Ch. 5](https://bradleyboehmke.github.io/HOML/logistic-regression.html)
 
 ### Supplementary Reading:
+
+-   
 
 ### Lab:
 
