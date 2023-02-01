@@ -1,8 +1,11 @@
 ---
-title: "Lab4"
-author: "Mateo Robbins"
+title: "Lab3"
+author: 'Elise Gonzales, Collaborator: Amrit Sandhu'
 date: "2023-01-25"
-output: html_document
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -33,27 +36,95 @@ glimpse(abdat)
 -   ***Question 1***. Split the data into training and test sets. Use a 70/30 training/test split.
 
 We'll follow our text book's lead and use the caret package in our approach to this task. We will use the glmnet package in order to perform ridge regression and the lasso. The main function in this package is glmnet(), which can be used to fit ridge regression models, lasso models, and more. In particular, we must pass in an x matrix of predictors as well as a y outcome vector , and we do not use the y∼x syntax.
+```{r}
+set.seed(123)  # for reproducibility (random sample)
+abalone_split <- initial_split(abdat, prop = .70)
+
+```
+
 
 ### Fit a ridge regression model
 
 -   ***Question 2***. Use the model.matrix() function to create a predictor matrix, x, and assign the Rings variable to an outcome vector, y.
+```{r}
+abdat_train <- training(abalone_split)
+abdat_test  <- testing(abalone_split)
+
+#Create training feature matrices using model.matrix()
+X <- model.matrix(Rings ~., abdat_train)[,-1]
+# transform y with log() transformation
+Y <- log(abdat_train$Rings)
+```
+
 
 -   ***Question 3***. Fit a ridge model (controlled by the alpha parameter) using the glmnet() function. Make a plot showing how the estimated coefficients change with lambda. (Hint: You can call plot() directly on the glmnet() objects).
 
 ### Using *k*-fold cross validation resampling and tuning our models
 
 In lecture we learned about two methods of estimating our model's generalization error by resampling, cross validation and bootstrapping. We'll use the *k*-fold cross validation method in this lab. Recall that lambda is a tuning parameter that helps keep our model from over-fitting to the training data. Tuning is the process of finding the optima value of lamba.
+```{r}
+#fit a ridge model
+ridge <- glmnet(x=X,
+                y=Y,
+                alpha = 0)
+#plot() the glmnet model object
+plot(ridge, xvar = "lambda")
+```
 
 -   ***Question 4***. This time fit a ridge regression model and a lasso model, both with using cross validation. The glmnet package kindly provides a cv.glmnet() function to do this (similar to the glmnet() function that we just used). Use the alpha argument to control which type of model you are running. Plot the results.
+```{r}
+# Apply CV ridge regression to data
+ridge <- cv.glmnet(
+  x = X,
+  y = Y,
+  alpha = 0
+)
+# Apply CV lasso regression to data
+lasso <- cv.glmnet(
+  x = X,
+  y = Y,
+  alpha = 1)
+# plot results
+par(mfrow = c(1, 2))
+plot(ridge, main = "Ridge penalty\n\n")
+plot(lasso, main = "Lasso penalty\n\n")
+
+```
 
 -   ***Question 5***. Interpret the graphs. What is being show on the axes here? How does the performance of the models change with the value of lambda?
+The ridge penalty model has a constant number of features (shown on the top axis of the graph). As lambda increases, the all 10 features are penalized the same amount. As we lambda increases, the MSE increases (shown in the graph).
+
+The lasso penalty model decreases in number of features (shown at the top of the graph). The model is simpler at increasing values of lambda. 
+
 
 -   ***Question 6***. Inspect the ridge model object you created with cv.glmnet(). The \$cvm column shows the MSEs for each cv fold. What is the minimum MSE? What is the value of lambda associated with this MSE minimum?
+```{r}
+# Lasso model
+min(ridge$cvm)       # minimum MSE
+ridge$lambda.min     # lambda for this min MSE
+# 1-SE rule
+ridge$lambda.1se  # lambda for this MSE
+```
+
 
 -   ***Question 7***. Do the same for the lasso model. What is the minimum MSE? What is the value of lambda associated with this MSE minimum?
-
 Data scientists often use the "one-standard-error" rule when tuning lambda to select the best model. This rule tells us to pick the most parsimonious model (fewest number of predictors) while still remaining within one standard error of the overall minimum cross validation error. The cv.glmnet() model object has a column that automatically finds the value of lambda associated with the model that produces an MSE that is one standard error from the MSE minimum (\$lambda.1se).
+```{r}
+# Lasso model
+min(lasso$cvm)       # minimum MSE
+lasso$lambda.min     # lambda for this min MSE
+# 1-SE rule
+lasso$lambda.1se  # lambda for this MSE
+```
 
 -   ***Question 8.*** Find the number of predictors associated with this model (hint: the \$nzero is the \# of predictors column).
-
 -   **Question 9.** Which regularized regression worked better for this task, ridge or lasso? Explain your answer.
+```{r}
+ridge$nzero[ridge$lambda == ridge$lambda.min] # No. of coef, min MSE
+ridge$nzero[ridge$lambda == ridge$lambda.1se] # No. of coef, 1se
+
+lasso$nzero[lasso$lambda == lasso$lambda.min] # No. of coef, min MSE
+lasso$nzero[lasso$lambda == lasso$lambda.1se] # No. of coef, 1se
+```
+The lasso penalty worked better; it has a lower MSE when comparing the minimum MSE between the ridge penalty and the lasso penalty.
+
