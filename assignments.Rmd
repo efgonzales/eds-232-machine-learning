@@ -77,7 +77,11 @@ Assigned readings and labs will be posted to this page on a weekly basis.
 
 ### Supplementary Reading:
 
--   
+These will help you with Lab 4.
+
+-   [HOML Ch. 2.6](https://bradleyboehmke.github.io/HOML/process.html#model-eval)
+
+-   [Cansler et al. 2020: Fire Tree Mortality Database paper](https://www.nature.com/articles/s41597-020-0522-7)
 
 ### Lab:
 
