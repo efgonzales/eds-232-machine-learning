@@ -25,42 +25,45 @@ df <- attrition %>% mutate_if(is.ordered, factor, ordered = FALSE)
 # Create training (70%) and test (30%) sets for the 
 # rsample::attrition data.
 set.seed(123)  # for reproducibility (random sample)
-churn_split <- 
-churn_train <- 
-churn_test  <- 
+churn_split <- initial_split(df, prop = .70)
+churn_train <- training(churn_split)
+churn_test  <- testing(churn_split)
 ```
 
 ```{r recode_attrition_test}
-
+churn_test <- recipe(Attrition ~., data = churn_test) %>%
+  step_integer(Attrition, zero_based = TRUE) %>%
+  prep(churn_test) %>%
+  bake(churn_test)
 ```
 
 ```{r recode_attrition_train}
 churn_train <- recipe(Attrition ~ ., data = churn_train) %>%
   step_integer(Attrition, zero_based = TRUE) %>%
-  prep(df) %>%
-  bake(df)
+  prep(churn_train) %>%
+  bake(churn_train)
 ```
 
 
 ```{r specify_models_glm}
 #MonthlyIncome
-model1 <- 
+model1 <- glm(data = churn_train, Attrition ~ MonthlyIncome, family = binomial)
   
 #OverTime
-model2 <- 
+model2 <- glm(data = churn_train, Attrition ~ OverTime, family =binomial)
 ```
 
 
 ```{r tidy_model_objs}
-
-
-
+tidy(model1)
+tidy(model2)
 ```
 
 ```{r exp_coefs}
 #exponentiate the coefficients from model objects for interpretation
+exp(coef(model1))
 
-
+exp(coef(model2))
 ```
 
 ```{r plot_income_attrition}
